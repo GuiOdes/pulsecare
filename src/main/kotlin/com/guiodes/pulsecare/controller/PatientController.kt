@@ -17,32 +17,25 @@ class PatientController(
 ) {
 
     @PostMapping
-    fun save(
-        patientModel: PatientModel
-    ) = patientService.saveOrUpdate(patientModel)
+    fun savePatient(patientModel: PatientModel): PatientModel {
+        return patientService.saveOrUpdate(patientModel)
+    }
 
-    @PostMapping("/bracelet")
-    fun createBracelet(
-        patientId: Long,
-        braceletColor: String
-    ) = patientService.createBracelet(patientId, braceletColor)
+    @PostMapping("/{patientId}/bracelet")
+    fun attachBracelet(@PathVariable patientId: Long, braceletColor: String) {
+        patientService.createBracelet(patientId, braceletColor)
+    }
 
-    @PostMapping("/history")
-    fun createHistory(
-        patientId: Long,
-        historyModel: PatientHistoryModel
-    ) = patientService.createHistory(patientId, historyModel)
+    @PostMapping("/{patientId}/history")
+    fun createHistory(@PathVariable patientId: Long, historyModel: PatientHistoryModel) {
+        patientService.createHistory(patientId, historyModel)
+    }
 
     @GetMapping
     fun findAll() = patientService.findAll()
 
-    @GetMapping("/{id}")
-    fun findById(
-        @PathVariable id: Long
-    ) = patientService.findById(id)
-
-//    @DeleteMapping
-//    fun delete(
-//        patientModel: PatientModel
-//    ) = patientService.delete(patientModel)
+    @GetMapping("/{param}")
+    fun getByParam(@PathVariable param: String): PatientModel {
+        return patientService.getByParam(param)
+    }
 }

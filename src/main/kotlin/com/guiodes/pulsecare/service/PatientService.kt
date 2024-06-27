@@ -19,4 +19,8 @@ class PatientService(
     fun createHistory(patientId: Long, historyModel: PatientHistoryModel) {
         TODO()
     }
+
+    fun getByParam(param: String): PatientModel {
+        TODO()
+    }
 }
