@@ -41,8 +41,8 @@ class PatientController(
         @PathVariable id: Long
     ) = patientService.findById(id)
 
-    @DeleteMapping
-    fun delete(
-        patientModel: PatientModel
-    ) = patientService.delete(patientModel)
+//    @DeleteMapping
+//    fun delete(
+//        patientModel: PatientModel
+//    ) = patientService.delete(patientModel)
 }
