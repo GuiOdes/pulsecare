@@ -1,9 +1,7 @@
 package com.guiodes.pulsecare.service
 
 import com.guiodes.pulsecare.repository.BaseRepository
-import org.springframework.stereotype.Service
 
-@Service
 abstract class BaseService<T>(
     private val repository: BaseRepository<T>
 ) {
