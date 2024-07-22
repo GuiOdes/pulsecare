@@ -1,7 +1,9 @@
-package com.guiodes.pulsecare.controller
+package com.guiodes.pulsecare.api.controller
 
+import com.guiodes.pulsecare.api.request.CreateConsultationRequest
 import com.guiodes.pulsecare.domain.model.ConsultationModel
 import com.guiodes.pulsecare.service.ConsultationService
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -18,11 +20,11 @@ class ConsultationController(
 
     @PostMapping("/register")
     fun registerConsultation(
-        @RequestBody consultationModel: ConsultationModel
-    ) = consultationService.saveOrUpdate(consultationModel)
+        @RequestBody request: CreateConsultationRequest
+    ) = consultationService.saveOrUpdate(request)
 
-    @PutMapping("/finish")
+    @PutMapping("/finish/{consultationId}")
     fun finishConsultation(
-        @RequestBody consultationModel: ConsultationModel
-    ) = consultationService.finishConsultation(consultationModel)
+        @PathVariable consultationId: Long
+    ) = consultationService.finishConsultation(consultationId)
 }

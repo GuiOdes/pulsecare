@@ -1,5 +1,7 @@
 package com.guiodes.pulsecare.service
 
+import com.guiodes.pulsecare.api.request.CreatePatientRequest
+import com.guiodes.pulsecare.api.request.PatientHistoryRequest
 import com.guiodes.pulsecare.domain.model.PatientHistoryModel
 import com.guiodes.pulsecare.domain.model.PatientModel
 import com.guiodes.pulsecare.repository.BraceletRepository
@@ -12,13 +14,13 @@ class PatientService(
     private val patientRepository: PatientRepository,
     private val braceletRepository: BraceletRepository,
     private val historyRepository: PatientHistoryRepository
-): BaseService<PatientModel>(patientRepository) {
+) {
 
     fun createBracelet(patientId: Long, braceletColor: String) {
         TODO()
     }
 
-    fun createHistory(patientId: Long, historyModel: PatientHistoryModel) {
+    fun createHistory(patientId: Long, request: PatientHistoryRequest) {
         TODO()
     }
 
@@ -36,5 +38,17 @@ class PatientService(
 
     fun findAllQueues(): Pair<List<PatientModel>, List<PatientModel>> {
         TODO()
+    }
+
+    fun saveOrUpdate(request: CreatePatientRequest): PatientModel {
+        TODO("Not yet implemented")
+    }
+
+    fun findAll(): List<PatientModel> {
+        TODO("Not yet implemented")
+    }
+
+    fun findById(id: Long): PatientModel {
+        TODO("Not yet implemented")
     }
 }

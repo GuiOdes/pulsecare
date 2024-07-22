@@ -1,6 +1,6 @@
 package com.guiodes.pulsecare.domain.model
 
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 data class PatientBraceletModel(
     val id: Long? = null,
@@ -8,5 +8,5 @@ data class PatientBraceletModel(
     val bracelet: BraceletModel,
     val complaint: String,
     val isActive: Boolean,
-    val createdAt: LocalDate? = null
+    val createdAt: LocalDateTime? = null
 )

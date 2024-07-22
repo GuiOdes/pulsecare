@@ -1,7 +1,10 @@
-package com.guiodes.pulsecare.controller
+package com.guiodes.pulsecare.api.controller
 
+import com.guiodes.pulsecare.api.request.CreateConsultationRequest
+import com.guiodes.pulsecare.api.request.CreatePatientRequest
+import com.guiodes.pulsecare.api.request.CreateProntuaryRequest
+import com.guiodes.pulsecare.api.request.PatientHistoryRequest
 import com.guiodes.pulsecare.domain.model.ConsultationModel
-import com.guiodes.pulsecare.domain.model.PatientHistoryModel
 import com.guiodes.pulsecare.domain.model.PatientModel
 import com.guiodes.pulsecare.domain.model.ProntuaryModel
 import com.guiodes.pulsecare.service.ConsultationService
@@ -23,18 +26,18 @@ class PatientController(
 ) {
 
     @PostMapping
-    fun saveOrUpdate(patientModel: PatientModel): PatientModel {
-        return patientService.saveOrUpdate(patientModel)
+    fun saveOrUpdate(request: CreatePatientRequest): PatientModel {
+        return patientService.saveOrUpdate(request)
     }
 
     @PostMapping("/{patientId}/bracelet")
-    fun attachBracelet(@PathVariable patientId: Long, braceletColor: String) {
+    fun attachBracelet(@PathVariable patientId: Long, @RequestBody braceletColor: String) {
         patientService.createBracelet(patientId, braceletColor)
     }
 
     @PostMapping("/{patientId}/history")
-    fun createHistory(@PathVariable patientId: Long, historyModel: PatientHistoryModel) {
-        patientService.createHistory(patientId, historyModel)
+    fun createHistory(@PathVariable patientId: Long, @RequestBody request: PatientHistoryRequest) {
+        patientService.createHistory(patientId, request)
     }
 
     @GetMapping
@@ -51,12 +54,12 @@ class PatientController(
     }
 
     @PostMapping("/prontuary")
-    fun saveProntuary(@RequestBody prontuaryModel: ProntuaryModel): ProntuaryModel {
-        return prontuaryService.saveOrUpdate(prontuaryModel)
+    fun saveProntuary(@RequestBody request: CreateProntuaryRequest): ProntuaryModel {
+        return prontuaryService.saveOrUpdate(request)
     }
 
     @PostMapping("/consultation")
-    fun saveConsultation(@RequestBody consultationModel: ConsultationModel): ConsultationModel {
-        return consultationService.saveOrUpdate(consultationModel)
+    fun saveConsultation(@RequestBody request: CreateConsultationRequest): ConsultationModel {
+        return consultationService.saveOrUpdate(request)
     }
 }

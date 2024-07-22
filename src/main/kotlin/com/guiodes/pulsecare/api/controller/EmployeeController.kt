@@ -1,5 +1,6 @@
-package com.guiodes.pulsecare.controller
+package com.guiodes.pulsecare.api.controller
 
+import com.guiodes.pulsecare.api.request.CreateEmployeeRequest
 import com.guiodes.pulsecare.domain.model.EmployeeModel
 import com.guiodes.pulsecare.service.EmployeeService
 import org.springframework.web.bind.annotation.*
@@ -11,8 +12,8 @@ class EmployeeController (
 ) {
 
     @PostMapping
-    fun save(employeeModel: EmployeeModel): EmployeeModel {
-        return employeeService.saveOrUpdate(employeeModel)
+    fun save(request: CreateEmployeeRequest): EmployeeModel {
+        return employeeService.saveOrUpdate(request)
     }
 
     @GetMapping("/all")
@@ -22,6 +23,4 @@ class EmployeeController (
     fun findByDocument(@PathVariable document: String): EmployeeModel {
         return employeeService.findByDocument(document)
     }
-
-
 }
