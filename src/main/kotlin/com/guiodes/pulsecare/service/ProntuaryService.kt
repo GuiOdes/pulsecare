@@ -5,4 +5,8 @@ import com.guiodes.pulsecare.repository.ProntuaryRepository
 
 class ProntuaryService(
     private val prontuaryRepository: ProntuaryRepository
-): BaseService<ProntuaryModel>(prontuaryRepository)
+): BaseService<ProntuaryModel>(prontuaryRepository) {
+    fun callNextPatient() {
+        TODO()
+    }
+}
