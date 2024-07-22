@@ -1,5 +1,5 @@
 package com.guiodes.pulsecare.repository
 
-import com.guiodes.pulsecare.domain.model.ConsultationModel
+import com.guiodes.pulsecare.domain.entity.ConsultationEntity
 
-interface ConsultationRepository: BaseRepository<ConsultationModel>
+interface ConsultationRepository: BaseRepository<ConsultationEntity>

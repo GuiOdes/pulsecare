@@ -1,5 +1,5 @@
 package com.guiodes.pulsecare.repository
 
-import com.guiodes.pulsecare.domain.model.PatientBraceletModel
+import com.guiodes.pulsecare.domain.entity.PatientBraceletEntity
 
-interface PatientBraceletRepository: BaseRepository<PatientBraceletModel>
+interface PatientBraceletRepository: BaseRepository<PatientBraceletEntity>

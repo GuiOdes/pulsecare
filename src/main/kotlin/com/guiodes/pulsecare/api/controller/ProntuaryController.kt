@@ -1,4 +1,4 @@
-package com.guiodes.pulsecare.controller
+package com.guiodes.pulsecare.api.controller
 
 import com.guiodes.pulsecare.service.ProntuaryService
 import org.springframework.web.bind.annotation.PutMapping

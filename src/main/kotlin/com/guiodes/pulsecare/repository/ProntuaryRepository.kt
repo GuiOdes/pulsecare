@@ -1,5 +1,5 @@
 package com.guiodes.pulsecare.repository
 
-import com.guiodes.pulsecare.domain.model.ProntuaryModel
+import com.guiodes.pulsecare.domain.entity.ProntuaryEntity
 
-interface ProntuaryRepository: BaseRepository<ProntuaryModel>
+interface ProntuaryRepository: BaseRepository<ProntuaryEntity>
