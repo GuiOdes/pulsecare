@@ -8,6 +8,7 @@ class PulseCareApplicationTests {
 
 	@Test
 	fun contextLoads() {
+
 	}
 
 }
