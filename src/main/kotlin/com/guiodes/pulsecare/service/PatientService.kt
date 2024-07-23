@@ -51,10 +51,10 @@ class PatientService(
     }
 
     fun findAll(): List<PatientModel> {
-        TODO("Not yet implemented")
+        return patientRepository.findAll()
     }
 
     fun findById(id: Long): PatientModel {
-        TODO("Not yet implemented")
+        return patientRepository.findById(id).toModel()
     }
 }
