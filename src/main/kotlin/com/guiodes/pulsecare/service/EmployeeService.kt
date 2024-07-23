@@ -1,6 +1,7 @@
 package com.guiodes.pulsecare.service
 
 import com.guiodes.pulsecare.api.request.CreateEmployeeRequest
+import com.guiodes.pulsecare.domain.entity.EmployeeEntity
 import com.guiodes.pulsecare.domain.model.EmployeeModel
 import com.guiodes.pulsecare.repository.EmployeeRepository
 import org.springframework.stereotype.Service
@@ -20,10 +21,18 @@ class EmployeeService(
     }
 
     fun saveOrUpdate(employeeModel: CreateEmployeeRequest): EmployeeModel {
-        TODO("Not yet implemented")
+        val employe = findByDocument(employeeModel.document)
+        employe.copy(
+             name = employeeModel.name,
+             phone = employeeModel.phone,
+             email = employeeModel.email,
+             birthDate = employeeModel.birthDate,
+             type = employeeModel.type
+        )
+        return employeeRepository.saveOrUpdateEmployee(employe)
     }
 
-    fun findAll(): List<EmployeeModel> {
-        TODO("Not yet implemented")
+    fun findAll(): List<EmployeeEntity> {
+        return employeeRepository.findAll()
     }
 }

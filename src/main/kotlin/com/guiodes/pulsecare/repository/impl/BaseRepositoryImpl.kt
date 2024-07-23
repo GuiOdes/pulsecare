@@ -1,6 +1,7 @@
 package com.guiodes.pulsecare.repository.impl
 
 import com.guiodes.pulsecare.domain.entity.BaseEntity
+import com.guiodes.pulsecare.domain.model.EmployeeModel
 import com.guiodes.pulsecare.repository.BaseRepository
 import org.springframework.data.jpa.repository.JpaRepository
 

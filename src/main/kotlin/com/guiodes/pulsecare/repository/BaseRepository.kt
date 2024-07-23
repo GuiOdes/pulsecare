@@ -1,5 +1,6 @@
 package com.guiodes.pulsecare.repository
 
+import com.guiodes.pulsecare.domain.model.EmployeeModel
 import org.springframework.stereotype.Repository
 
 @Repository
