@@ -8,4 +8,8 @@ import org.springframework.stereotype.Repository
 @Repository
 class ProntuaryRepositoryImpl(
     private val repository: ProntuaryJpaRepository
-): ProntuaryRepository, BaseRepositoryImpl<ProntuaryEntity>(repository)
+): ProntuaryRepository, BaseRepositoryImpl<ProntuaryEntity>(repository) {
+    override fun existsByPatient(patientId: Long): Boolean {
+        return repository.existsByPatientBraceletPatientId(patientId)
+    }
+}

@@ -1,11 +1,11 @@
 package com.guiodes.pulsecare.api.request
 
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 data class CreateConsultationRequest(
     val patientBraceletId: Long,
     val doctorId: Long,
-    val startedAt: LocalDate,
-    val endedAt: LocalDate,
+    val startedAt: LocalDateTime,
+    val endedAt: LocalDateTime,
     val observations: String
 )

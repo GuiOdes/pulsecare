@@ -1,18 +1,18 @@
 package com.guiodes.pulsecare.domain.entity
 
+import com.guiodes.pulsecare.api.request.CreatePatientRequest
 import com.guiodes.pulsecare.domain.enum.GenderEnum
-import com.guiodes.pulsecare.domain.model.PatientHistoryModel
+import com.guiodes.pulsecare.domain.model.PatientModel
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
-import jakarta.persistence.Table
 import java.time.LocalDate
 
 @Entity
-class PatientEntity(
+data class PatientEntity(
     val name: String? = null,
 
     val phone: String? = null,
@@ -28,4 +28,26 @@ class PatientEntity(
     @JoinColumn
     @OneToOne
     val medicalHistory: PatientHistoryEntity? = null
-): BaseEntity()
+): BaseEntity() {
+    fun toModel() = PatientModel(
+        id = id,
+        name = name,
+        phone = phone,
+        birthDate = birthDate,
+        document = document,
+        gender = gender,
+        medicalHistory = medicalHistory?.toModel(),
+        createdAt = createdAt
+    )
+
+    companion object {
+        fun of(request: CreatePatientRequest) = PatientEntity(
+            name = request.name,
+            phone = request.phone,
+            birthDate = request.birthDate,
+            document = request.document,
+            gender = request.gender,
+            medicalHistory = null
+        )
+    }
+}

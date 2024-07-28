@@ -1,10 +1,16 @@
 package com.guiodes.pulsecare.domain.entity
 
+import com.guiodes.pulsecare.domain.model.PatientHistoryModel
 import jakarta.persistence.Entity
-import jakarta.persistence.Table
 
 @Entity
 class PatientHistoryEntity(
     val chronicallyDiseases: String,
     val predisposedDiseases: String
-): BaseEntity()
+): BaseEntity() {
+    fun toModel() = PatientHistoryModel(
+        id = id,
+        chronicallyDiseases = chronicallyDiseases,
+        predisposedDiseases = predisposedDiseases
+    )
+}

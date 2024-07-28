@@ -1,5 +1,6 @@
 package com.guiodes.pulsecare.domain.entity
 
+import com.guiodes.pulsecare.domain.model.ProntuaryModel
 import jakarta.persistence.Entity
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
@@ -19,4 +20,15 @@ class ProntuaryEntity(
     @ManyToOne
     @JoinColumn(name = "EMPLOYEE_ID")
     val registeredBy: EmployeeEntity
-): BaseEntity()
+): BaseEntity() {
+    fun toModel() = ProntuaryModel(
+        id = id,
+        patientBracelet = patientBracelet.toModel(),
+        temperatureInCelsius = temperatureInCelsius,
+        arterialPressure = arterialPressure,
+        heightInCm = heightInCm,
+        weightInKg = weightInKg,
+        createdAt = createdAt,
+        registeredBy = registeredBy.toModel()
+    )
+}

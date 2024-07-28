@@ -1,6 +1,7 @@
 package com.guiodes.pulsecare.api.controller
 
 import com.guiodes.pulsecare.api.request.CreateConsultationRequest
+import com.guiodes.pulsecare.api.request.CreatePatientBraceletRequest
 import com.guiodes.pulsecare.api.request.CreatePatientRequest
 import com.guiodes.pulsecare.api.request.CreateProntuaryRequest
 import com.guiodes.pulsecare.api.request.PatientHistoryRequest
@@ -31,8 +32,8 @@ class PatientController(
     }
 
     @PostMapping("/{patientId}/bracelet")
-    fun attachBracelet(@PathVariable patientId: Long, @RequestBody braceletColor: String) {
-        patientService.createBracelet(patientId, braceletColor)
+    fun attachBracelet(@PathVariable patientId: Long, @RequestBody request: CreatePatientBraceletRequest) {
+        patientService.createBracelet(patientId, request)
     }
 
     @PostMapping("/{patientId}/history")

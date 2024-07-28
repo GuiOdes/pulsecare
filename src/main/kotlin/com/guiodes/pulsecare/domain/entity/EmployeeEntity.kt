@@ -1,12 +1,12 @@
 package com.guiodes.pulsecare.domain.entity
 
+import com.guiodes.pulsecare.api.request.CreateEmployeeRequest
 import com.guiodes.pulsecare.domain.enum.EmployeeType
 import com.guiodes.pulsecare.domain.model.EmployeeModel
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
-import jakarta.persistence.Table
 import java.time.LocalDate
 
 @Entity
@@ -31,4 +31,15 @@ class EmployeeEntity(
         document = document,
         type = type
     )
+
+    companion object {
+        fun of(request: CreateEmployeeRequest) = EmployeeEntity(
+            name = request.name,
+            phone = request.phone,
+            email = request.email,
+            birthDate = request.birthDate,
+            document = request.document,
+            type = request.type
+        )
+    }
 }
